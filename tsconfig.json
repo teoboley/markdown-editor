@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "declaration": true,
+    "outDir": "./dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom", "esnext"],
+    "sourceMap": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    // "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "downlevelIteration": true
+  },
+  "include": [
+    "src",
+    "types.d.ts",
+    "modules.d.ts"
+  ],
+  "files": [
+    "src/index.tsx",
+    "types.d.ts",
+    "modules.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack.config.js",
+    "webpack",
+    "jest",
+    "src/setupTests.ts"
+  ]
+}
