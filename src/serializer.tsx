@@ -1,16 +1,19 @@
 import * as React from "react";
-import { Block, Inline, Mark, Node, Value } from 'slate';
-import * as unified from 'unified';
-// import inspect from 'unist-util-inspect';
-import * as fromMarkdown from 'remark-parse';
-import * as remark2rehype from 'remark-rehype';
-import * as toHtml from 'rehype-stringify';
-
-import * as toMarkdown from 'remark-stringify';
-import * as rehype2remark from 'rehype-remark';
-import * as fromHtml from 'rehype-parse';
-
+import { Block, Inline, Mark, Value } from 'slate';
 import SlateHtml from 'slate-html-serializer'
+
+const unified = require('unified');
+
+// import inspect from 'unist-util-inspect';
+const fromMarkdown = require('remark-parse');
+const remark2rehype = require('remark-rehype');
+const toHtml = require('rehype-stringify');
+
+const toMarkdown = require('remark-stringify');
+const rehype2remark = require('rehype-remark');
+const fromHtml = require('rehype-parse');
+
+
 import {EBlockType, EInlineType, EMarkType} from "./slate-types";
 
 const BLOCK_TAGS = {
@@ -41,7 +44,7 @@ const INLINE_TAGS = {
   img: EInlineType.Image,
   input: EInlineType.Input
 };
-​
+
 const MARK_TAGS = {
   strong: EMarkType.Bold,
   em: EMarkType.Italic,
@@ -49,7 +52,7 @@ const MARK_TAGS = {
   s: EMarkType.Strikethrough,
   a: EMarkType.Link
 };
-​
+
 const rules = [
   // blocks
   {
@@ -210,10 +213,10 @@ export const fileToDataURL = (file: File) => {
 
 export function deserialize(source: string): { html: string; slate: Value } {
   const deserializedHTML = unified()
-  .use(fromMarkdown)
-  .use(remark2rehype)
-  .use(toHtml)
-  .processSync(source).toString();
+    .use(fromMarkdown)
+    .use(remark2rehype)
+    .use(toHtml)
+    .processSync(source).toString();
 
   const slateHtml = new SlateHtml({ rules });
 

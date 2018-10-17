@@ -11,7 +11,7 @@ async function createPackageFile() {
   const newPackageData = {
     ...packageDataOther,
     main: './index.js',
-    types: './dist/index.d.ts'
+    types: './index.d.ts'
   };
   const buildPath = path.resolve(__dirname, '../build/package.json');
 

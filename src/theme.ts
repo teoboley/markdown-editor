@@ -448,8 +448,8 @@ h1::before {
    content: "h1";
   font-size: 1.5rem;
   opacity: 0.5;
-    position: absolute;
-    left: -20px;
+  position: absolute;
+  left: -20px;
 }
 
 h2 {

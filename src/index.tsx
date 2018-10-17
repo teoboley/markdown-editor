@@ -1,7 +1,7 @@
-import * as React from 'react'
-import { Editor } from 'slate-react'
-import { Change, Value } from 'slate'
-import Sandbox from 'react-sandbox';
+import * as React from 'react';
+import { Editor } from 'slate-react';
+import { Change, Value } from 'slate';
+import Sandbox from './Sandbox';
 // import * as ReactDataGrid from 'react-data-grid';
 
 import slatePlugins from "./slate-plugins";
