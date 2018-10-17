@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "build/index.js",
   "author": "Teo Boley",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "prebuild": "rimraf build",
     "build:ts": "tsc",
