@@ -1,10 +1,8 @@
-const webpack = require("webpack");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = (baseConfig, env, config) => {
   addTypescriptSupport(config);
-  config.plugins.push( new webpack.ProvidePlugin({"React": "react"}));
-  
+
   return config;
 };
 
@@ -21,15 +19,3 @@ function addTypescriptSupport(config) {
   }));
   config.resolve.extensions.push(".ts", ".tsx");
 }
-
-// function replaceLoaders(config, newLoaders) {
-//   config.module.rules = config.module.rules.reduce((acc, curr) => {
-//     const replacement = newLoaders.find(loader => curr.test.toString() === loader.test.toString());
-//
-//     if (replacement) {
-//       return [...acc, replacement];
-//     }
-//
-//     return [...acc, curr];
-//   }, [])
-// }

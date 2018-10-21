@@ -12,10 +12,8 @@ import defaultTheme, {defaultOverrides} from "./theme";
 
 interface IMarkdownEditorViewModel {
   source: string;
-  topMenu: any;
+  topMenu?: any;
   documentTheme?: string;
-
-  loading?: boolean;
 }
 
 interface IMarkdownEditorActions {
@@ -85,10 +83,10 @@ class MarkdownEditor extends React.Component<MarkdownEditorProps, IMarkdownEdito
 
     return (
       <div style={{ flexGrow: 1, display: "flex", flexDirection: 'column' }}>
-          <div style={{ position: "relative", width: "100%", height: 0 }}>
-            {  this.props.topMenu }
-          </div>
-          { !this.props.loading && this.state.editor != null ?
+          {this.props.topMenu && <div style={{ position: "relative", width: "100%", height: 0 }}>
+            { this.props.topMenu }
+          </div>}
+          { this.state.editor != null ?
             <>
               {/*<FloatingActionBar
                 type={{ type: EActionBarType.TEXT, fields: marks }}
@@ -103,12 +101,9 @@ class MarkdownEditor extends React.Component<MarkdownEditorProps, IMarkdownEdito
               />*/}
               <Sandbox style={{ width: "100%" }} onLoadWindow={win => {
                 this.frameWindow = win;
-              }
-              }>
+              }}>
                 <style>{ theme }</style>
-                <style>
-                  { defaultOverrides }
-                </style>
+                <style>{ defaultOverrides }</style>
                 <Editor
                   value={this.state.editor!.value}
                   onChange={this.onChange}
@@ -154,7 +149,7 @@ class MarkdownEditor extends React.Component<MarkdownEditorProps, IMarkdownEdito
   // }
 
   onChange({ value }: Change) {
-    if (!this.props.loading && this.state.editor != null) {
+    if (this.state.editor != null) {
       if (!value.document.equals(this.state.editor.value.document) && this.props.onChange) {
         this.props.onChange(() => {
           const serializedMarkdown = serializeMarkdown(value);

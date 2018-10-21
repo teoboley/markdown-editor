@@ -2,8 +2,9 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "declaration": true,
-    "outDir": "./dist",
-    "module": "esnext",
+    "declarationDir": "./build",
+    "outDir": "./build",
+    "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom", "esnext"],
     "sourceMap": true,

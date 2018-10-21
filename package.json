@@ -1,5 +1,5 @@
 {
-  "name": "markdown-editor",
+  "name": "@crash-test-design/markdown-editor",
   "version": "0.1.0",
   "main": "build/index.js",
   "author": "Teo Boley",
@@ -9,7 +9,7 @@
     "build:ts": "tsc",
     "build:bundle": "rollup -c",
     "build:copy-files": "ts-node ./scripts/copy-files.ts",
-    "build": "yarn build:bundle && yarn build:copy-files",
+    "build": "yarn build:ts && yarn build:copy-files",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "test": "jest"

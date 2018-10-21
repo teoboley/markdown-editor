@@ -79,7 +79,7 @@ const HeadingPlugins = [
     func: (change, event, matches) => {
       const {startBlock} = change.value;
 
-      const [hashes] = matches!.before;
+      const [hashes] = matches!.before!;
       const level = hashes.length;
       const alph = ['zero', 'one', 'two', 'three', 'four', 'five', 'six'];
 
