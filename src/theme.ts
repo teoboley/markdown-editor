@@ -446,7 +446,7 @@ h1 {
 
 h1::before {
    content: "h1";
-  font-size: 1.5rem;
+  font-size: 15px;
   opacity: 0.5;
   position: absolute;
   left: -20px;
@@ -458,7 +458,7 @@ h2 {
 
 h2::before {
     content: "h2";
-    font-size: 1.4rem;
+    font-size: 14px;
     opacity: 0.5;
     position: absolute;
     left: -20px;
@@ -470,7 +470,7 @@ h3 {
 
 h3::before {
     content: "h3";
-    font-size: 1.3rem;
+    font-size: 13px;
     opacity: 0.5;
     position: absolute;
     left: -20px;
@@ -482,7 +482,7 @@ h4 {
 
 h4::before {
     content: "h4";
-    font-size: 1.2rem;
+    font-size: 12px;
     opacity: 0.5;
     position: absolute;
     left: -20px;
@@ -494,7 +494,7 @@ h5 {
 
 h5::before {
     content: "h5";
-    font-size: 1.1rem;
+    font-size: 11px;
     opacity: 0.5;
     position: absolute;
     left: -20px;
@@ -506,7 +506,7 @@ h6 {
 
 h6::before {
     content: "h6";
-    font-size: 1rem;
+    font-size: 10px;
     opacity: 0.5;
     position: absolute;
     left: -20px;
@@ -518,7 +518,7 @@ blockquote > * {
 
 blockquote > *::before {
     content: '>';
-    font-size: 1rem;
+    font-size: 1em;
     opacity: 0.5;
     position: absolute;
     left: -20px;
