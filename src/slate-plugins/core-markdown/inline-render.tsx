@@ -31,21 +31,22 @@ function renderNode(props: RenderNodeProps) {
       if (htmlAttributes.type === 'checkbox') {
         const checked = htmlAttributes.checked === '' || htmlAttributes.checked === true;
 
-        return <div contentEditable={false} style={{ display: 'inline-block', position: "relative", width: 16, left: -8 }}>
-          {/*<CircleChart sectors={[{ percentage: checked ? 100 : 0, color: "teal" }]} size={30} style={{ position: 'absolute', top: -20 }}*/}
-                       {/*onClick={() => {*/}
-                         {/*editor.change(c => c.setNodeByKey(node.key, {*/}
-                           {/*data: {*/}
-                             {/*...node.data,*/}
-                             {/*htmlAttributes: {*/}
-                               {/*...htmlAttributes,*/}
-                               {/*checked: !checked*/}
-                             {/*}*/}
-                           {/*}*/}
-                         {/*} as any))*/}
-                       {/*}}*/}
-          {/*/>*/}
-        </div>;
+        return <input {...attributes} type={'checkbox'} checked={checked} />;
+        {/*<div contentEditable={false} style={{ display: 'inline-block', position: "relative", width: 16, left: -8 }}>
+          <CircleChart sectors={[{ percentage: checked ? 100 : 0, color: "teal" }]} size={30} style={{ position: 'absolute', top: -20 }}
+                       onClick={() => {
+                         editor.change(c => c.setNodeByKey(node.key, {
+                           data: {
+                             ...node.data,
+                             htmlAttributes: {
+                               ...htmlAttributes,
+                               checked: !checked
+                             }
+                           }
+                         } as any))
+                       }}
+          />
+        </div>;*/}
       }
       break;
   }

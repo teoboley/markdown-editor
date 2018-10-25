@@ -1,6 +1,6 @@
 import {Block, Change} from 'slate'
 import {HandleTrigger} from "../lib";
-import {EBlockType, EInlineType} from "../../slate-types";
+import {EBlockType} from "../../slate-types";
 
 const BlockQuotePlugins = [
   // add blockquote
@@ -197,62 +197,6 @@ const ListPlugins = [
   })
 ];
 
-const CodePlugins = [
-  // add code line
-  HandleTrigger({
-    hotkey: '`',
-    func: (change) => {
-      const {startBlock} = change.value;
-
-      (change.insertInline({type: EInlineType.CodeLine, data: {htmlAttributes: {class: ''}}}) as any).moveFocusForward(1);
-      // change.wrapBlock('code');
-    }
-  }),
-  // delete code line
-  HandleTrigger({
-    hotkey: 'backspace',
-    func: (change) => {
-      // const { startBlock, selection } = change.value;
-      // if ((selection as any).start.offset != 0) return;
-      //
-      // if (startBlock.type === 'list-item') {
-      //   change.setBlocks(EBlockType.Paragraph);
-      //   change.unwrapBlock(EBlockType.BulletedList);
-      //   ((change as any).moveFocusToStartOfNode(startBlock) as Change).insertText('- ');
-      // }
-    }
-  })
-];
-
-const MarkPlugins = [
-  // add bold mark
-  HandleTrigger({
-    hotkey: '*',
-    condition: {
-      before: /^(\*)$/
-    },
-    func: (change) => {
-      console.log("BOLDIFY?");
-      // (change.addMark({ type: `bold` }) as any).moveFocusForward(1);
-      // change.wrapBlock('code');
-    }
-  }),
-  // delete bold mark
-  // HandleTrigger({
-  //   hotkey: 'backspace',
-  //   func: (change) => {
-  //     // const { startBlock, selection } = change.value;
-  //     // if ((selection as any).start.offset != 0) return;
-  //     //
-  //     // if (startBlock.type === 'list-item') {
-  //     //   change.setBlocks(EBlockType.Paragraph);
-  //     //   change.unwrapBlock(EBlockType.BulletedList);
-  //     //   ((change as any).moveFocusToStartOfNode(startBlock) as Change).insertText('- ');
-  //     // }
-  //   }
-  // })
-];
-
 const TablePlugins: any[] = [
   HandleTrigger({
     hotkey: 'up',
@@ -270,7 +214,5 @@ export default [
   ...BlockQuotePlugins,
   ...HeadingPlugins,
   ...ListPlugins,
-  ...CodePlugins,
-  ...MarkPlugins,
   ...TablePlugins
 ];

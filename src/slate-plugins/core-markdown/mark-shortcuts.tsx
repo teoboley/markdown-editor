@@ -1,29 +1,53 @@
-import { Change } from 'slate';
-import { isKeyHotkey } from 'is-hotkey';
 import {EMarkType} from "../../slate-types";
+import {HandleTrigger} from "../lib";
 
-const isBoldHotkey = isKeyHotkey('mod+b');
-const isItalicHotkey = isKeyHotkey('mod+i');
-const isUnderlinedHotkey = isKeyHotkey('mod+u');
+const BoldPlugins = [
+  // bold hotkey
+  HandleTrigger({
+    hotkey: 'mod+b',
+    func: (change) => {
+      change.toggleMark(EMarkType.Bold);
+    }
+  }),
+  // add bold mark
+  HandleTrigger({
+    hotkey: '*',
+    condition: {
+      before: /^(\*)$/ // FIXME
+    },
+    func: (change) => {
+      // TODO
+      // (change.addMark({ type: `bold` }) as any).moveFocusForward(1);
+      // change.wrapBlock('code');
+    }
+  }),
+  // TODO: delete bold mark
+];
 
-function onKeyDown(event: KeyboardEvent, change: Change): void {
-  let mark;
+const ItalicPlugins = [
+  // bold hotkey
+  HandleTrigger({
+    hotkey: 'mod+i',
+    func: (change) => {
+      change.toggleMark(EMarkType.Italic);
+    }
+  })
+];
 
-  if (isBoldHotkey(event)) {
-    mark = EMarkType.Bold;
-  } else if (isItalicHotkey(event)) {
-    mark = EMarkType.Italic;
-  } else if (isUnderlinedHotkey(event)) {
-    mark = EMarkType.Underline;
-  } else {
-    return;
-  }
+const UnderlinePlugins = [
+  // bold hotkey
+  HandleTrigger({
+    hotkey: 'mod+u',
+    func: (change) => {
+      change.toggleMark(EMarkType.Underline);
+    }
+  })
+];
 
-  event.preventDefault();
-  change.toggleMark(mark);
-  return;
-}
+// TODO: strikethrough
 
-export default {
-  onKeyDown
-}
+export default [
+  ...BoldPlugins,
+  ...ItalicPlugins,
+  ...UnderlinePlugins
+]
